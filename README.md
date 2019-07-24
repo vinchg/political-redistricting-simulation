@@ -1,1 +1,1 @@
-# political-redistricting-simulation
+# Political Redistricting through Simulated Annealing
