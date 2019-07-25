@@ -93,15 +93,38 @@ public class State {
         for(int i = 0; i < scoreTable.length; i++) {
             counter += scoreTable[i];
         }
-        double mean = counter / (scoreTable.length + 1);
+        double mean = counter / scoreTable.length;
 
         // Calculate average deviation
         counter = 0;
         for(int i = 0; i < scoreTable.length; i++) {
             counter += Math.pow((mean - scoreTable[i]), 2);
         }
-        double avg_dev = counter / (scoreTable.length + 1);
-        return avg_dev;
+        return counter;
+        //double avg_dev = counter / (scoreTable.length + 1);
+        //return avg_dev;
+    }
+
+    public double computeMean() {
+        int[] scoreTable = new int[group_list.length];
+        for(int i = 0; i < group_list.length; i++) {  // Calculate totals for each group
+            int counter = 0;
+            List<District> temp = group_list[i];
+            for(int j = 0; j < temp.size(); j++) {
+                counter += c.POPULATION[temp.get(j).number - 1];  // Get district number (adjust it to index) -> Get Population and add to Counter
+            }
+            scoreTable[i] = counter;
+        }
+
+        // Compute score from scoreTable
+
+        // Calculate mean first
+        int counter = 0;
+        for(int i = 0; i < scoreTable.length; i++) {
+            counter += scoreTable[i];
+        }
+        double mean = counter / scoreTable.length;
+        return mean;
     }
 
 
@@ -178,10 +201,13 @@ public class State {
             List<District> temp = group_list[i];
             if (temp.size() > 0)
                 System.out.print("Group " + i + ": ");
+            int pop_counter = 0;
             for(int j = 0; j < temp.size(); j++) {
                 System.out.print(temp.get(j).number + " ");
+                pop_counter += City.POPULATION[temp.get(j).number - 1];
                 counter++;
             }
+            System.out.print("Population: " + pop_counter);
             if (temp.size() > 0)
                 System.out.println();
         }

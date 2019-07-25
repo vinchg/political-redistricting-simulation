@@ -13,7 +13,7 @@ public class Anneal {
     public static void execute() {
         // exp (( solution - neighbor) / temperature)
         Random r = new Random();
-        double temperature = 10000000;
+        double temperature = 200000000;
         double cooling_rate = 0.000003;
         City c = new City();
         State s = new State(c);
@@ -59,6 +59,7 @@ public class Anneal {
         System.out.println("<--Best solution-->");
         best = new State(c, best_list);
         best.printState();
+        System.out.println("Mean: " + best.computeMean());
     }
 
     private static double acceptanceProbability(double score, double new_score, double temperature) {

@@ -216,6 +216,7 @@ public class City {
                     firstGroup = false;
             }
         }
+        System.out.println();
     }
 
 
