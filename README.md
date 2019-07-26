@@ -1,6 +1,5 @@
 # Applying Simulated Annealing to Political Redistricting
 
-## Summary
 Given a graph of cities and their populations, simulated annealing is applied to reform 66 districts into 28 with the goal of minimizing population difference between districts.
 
 ### Scoring
