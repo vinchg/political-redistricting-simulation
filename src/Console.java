@@ -2,7 +2,6 @@
  * Console
  *
  * @author Vincent Cheong
- * Student ID: 004299384
  */
 
 import java.io.FileNotFoundException;
